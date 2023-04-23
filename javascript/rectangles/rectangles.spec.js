@@ -8,21 +8,21 @@ describe('Rectangles', () => {
     expect(actual).toEqual(expected);
   });
 
-  xtest('no columns', () => {
+  test('no columns', () => {
     const expected = 0;
     const actual = count(['']);
 
     expect(actual).toEqual(expected);
   });
 
-  xtest('no rectangles', () => {
+  test('no rectangles', () => {
     const expected = 0;
     const actual = count([' ']);
 
     expect(actual).toEqual(expected);
   });
 
-  xtest('one rectangle', () => {
+  test('one rectangle', () => {
     const expected = 1;
     const actual = count(['+-+', '| |', '+-+']);
 
