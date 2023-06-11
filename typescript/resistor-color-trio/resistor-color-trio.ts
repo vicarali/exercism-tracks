@@ -1,32 +1,56 @@
-export function decodedResistorValue(colors: string[]): string {
-  const colorValues = [
-    "black",
-    "brown",
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "violet",
-    "grey",
-    "white",
-  ];
+const COLOR_VALUES = [
+  "black",
+  "brown",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "violet",
+  "grey",
+  "white",
+];
 
+export function decodedResistorValue(colors: string[]): string {
+  let resistorValue = getResistorValue(colors);
+  const zerosToAdd = COLOR_VALUES.indexOf(colors[2]);
+
+  let ohms = calculateOhms(resistorValue, zerosToAdd);
+
+  return ohms;
+}
+
+function getResistorValue(colors: string[]): number {
   let resistorValues = [];
 
-  resistorValues.push(colorValues.indexOf(colors[0]));
-  resistorValues.push(colorValues.indexOf(colors[1]));
+  resistorValues.push(COLOR_VALUES.indexOf(colors[0]));
+  resistorValues.push(COLOR_VALUES.indexOf(colors[1]));
+  let resistorValueInOhms = Number(resistorValues.join(""));
 
-  const zerosToAdd = colorValues.indexOf(colors[2]);
-  let resistorValueInOhms = 
+  return resistorValueInOhms;
+}
+
+function calculateOhms(resistorValue: number, zerosToAdd: number): string {
+  let resistorValueInOhms = resistorValue * 10 ** zerosToAdd;
+  let resistorValueWithPrefix =
+    calculateResistorValueWithPrefix(resistorValueInOhms);
+
+  return resistorValueWithPrefix;
+}
+
+function calculateResistorValueWithPrefix(resistorValueInOhms: number): string {
   let ohmsPrefix = "ohms";
 
-  if(zerosToAdd > 0) {
-    if(zerosToAdd >= 3) {
-      ohmsPrefix = "kiloohms";
-
-    }
+  if (resistorValueInOhms >= 10 ** 3 && resistorValueInOhms < 10 ** 6) {
+    resistorValueInOhms = resistorValueInOhms / 10 ** 3;
+    ohmsPrefix = "kiloohms";
+  } else if (resistorValueInOhms >= 10 ** 6 && resistorValueInOhms < 10 ** 9) {
+    resistorValueInOhms = resistorValueInOhms / 10 ** 6;
+    ohmsPrefix = "megaohms";
+  } else if (resistorValueInOhms >= 10 ** 9) {
+    resistorValueInOhms = resistorValueInOhms / 10 ** 9;
+    ohmsPrefix = "gigaohms";
   }
 
-  return Number(resistorValues.join(""));
+  return resistorValueInOhms + " " + ohmsPrefix;
 }
