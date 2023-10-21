@@ -2,7 +2,12 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/java/hello-world/.gradle/8.2/vcsMetadata" />
+      <excludeFolder url="file://$MODULE_DIR$/java/hello-world/.gradle/8.4/vcsMetadata" />
+      <excludeFolder url="file://$MODULE_DIR$/java/hello-world/build/generated" />
+      <excludeFolder url="file://$MODULE_DIR$/java/hello-world/build/tmp/test" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
