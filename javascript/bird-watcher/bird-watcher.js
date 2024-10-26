@@ -29,8 +29,6 @@ export function totalBirdCount(birdsPerDay) {
  */
 export function birdsInWeek(birdsPerDay, week) {
 	let daysToSkip = (week - 1) * 7;
-	console.log(daysToSkip);
-	//if (daysToSkip > 0) daysToSkip--;
 
 	let total = 0;
 	for (let i = 0; i < 7; i++) {
