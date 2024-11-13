@@ -43,7 +43,28 @@ export function timeToMixJuice(name) {
  * @timeInMinutes = s {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Please implement the limesToCut function');
+	let currentWedges = 0;
+	let limesCut = 0;
+
+	while (currentWedges < wedgesNeeded && limesCut < limes.length) {
+		currentWedges += calculateWedgesFromLime(limes[limesCut]);
+		limesCut++;
+	}
+
+	return limesCut;
+}
+
+function calculateWedgesFromLime(lime) {
+	switch (lime) {
+		case "small":
+			return 6;
+		case "medium":
+			return 8;
+		case "large":
+			return 10;
+		default:
+			return 0;
+	}
 }
 
 /**
@@ -54,5 +75,11 @@ export function limesToCut(wedgesNeeded, limes) {
  * @timeInMinutes = s {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+	while (timeLeft > 0 && orders.length > 0) {
+		const currentOrder = orders[0];
+		timeLeft -= timeToMixJuice(currentOrder);
+		orders.shift();
+	}
+
+	return orders;
 }
