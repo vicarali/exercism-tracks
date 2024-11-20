@@ -4,17 +4,8 @@
 // the @ts-check directive. It will give you helpful autocompletion when
 // implementing this exercise.
 
-/**
- * Build a sign that includes both of the parameters.
- *
- * @param {string} occasion
- * @param {string} name
- *
- * @returns {string} template string combining both parameters
- */
-
 export function buildSign(occasion, name) {
-  throw new Error('Implement the buildSign function');
+	return `Happy ${occasion} ${name}!`;
 }
 
 /**
@@ -26,7 +17,9 @@ export function buildSign(occasion, name) {
  */
 
 export function buildBirthdaySign(age) {
-  throw new Error('Implement the buildBirthdaySign function');
+	return `Happy Birthday! What a ${
+		age >= 50 ? "mature" : "young"
+	} fellow you are.`;
 }
 
 /**
@@ -39,7 +32,7 @@ export function buildBirthdaySign(age) {
  */
 
 export function graduationFor(name, year) {
-  throw new Error('Implement the graduationFor function');
+	return `Congratulations ${name}!\nClass of ${year}`;
 }
 
 /**
@@ -53,5 +46,8 @@ export function graduationFor(name, year) {
  */
 
 export function costOf(sign, currency) {
-  throw new Error('Implement the costOf function');
+	const baseSignPrice = 20;
+	const price = baseSignPrice + sign.length * 2;
+
+	return `Your sign costs ${price}.00 ${currency}.`;
 }
