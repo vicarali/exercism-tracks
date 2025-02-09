@@ -48,8 +48,10 @@ export class TranslationService {
 	 * @returns {Promise<string[]>}
 	 */
 	batch(texts) {
-    const translations
-		return Promise.all();
+		if (texts.length === 0) return Promise.reject(new BatchIsEmpty());
+
+		const translations = texts.map((text) => this.free(text));
+		return Promise.all(translations);
 	}
 
 	/**
@@ -62,7 +64,21 @@ export class TranslationService {
 	 * @returns {Promise<void>}
 	 */
 	request(text) {
-		throw new Error("Implement the request function");
+		const requestTranslation = () => {
+			return new Promise((resolve, reject) => {
+				this.api.request(text, (response) => {
+					if (response instanceof Error) {
+						reject(response);
+					} else {
+						resolve(undefined);
+					}
+				});
+			});
+		};
+
+		return requestTranslation()
+			.catch(requestTranslation)
+			.catch(requestTranslation);
 	}
 
 	/**
@@ -75,8 +91,21 @@ export class TranslationService {
 	 * @param {number} minimumQuality
 	 * @returns {Promise<string>}
 	 */
-	premium(text, minimumQuality) {
-		throw new Error("Implement the premium function");
+	async premium(text, minimumQuality) {
+		return this.api
+			.fetch(text)
+			.catch(async () => {
+				return this.request(text).then(() => this.api.fetch(text));
+			})
+			.then((response) => checkTranslationQuality(response, minimumQuality));
+	}
+}
+
+function checkTranslationQuality(response, minimumQuality) {
+	if (response.quality >= minimumQuality) {
+		return response.translation;
+	} else {
+		throw new QualityThresholdNotMet();
 	}
 }
 
