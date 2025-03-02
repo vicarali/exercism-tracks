@@ -11,7 +11,27 @@
  * @returns {number} the price of the pizza
  */
 export function pizzaPrice(pizza, ...extras) {
-  throw new Error('Please implement the pizzaPrice function');
+	let price;
+
+	if (pizza === "Margherita") price = 7;
+	else if (pizza === "Caprese") price = 9;
+	else price = 10;
+
+	if (extras.length === 0) return price;
+	else return addExtraOptions(price, extras);
+}
+
+function addExtraOptions(currentTotal, extras) {
+	if (extras.length === 0) return currentTotal;
+	else {
+		const currentExtra = extras[0];
+		extras.shift();
+
+		if (currentExtra === "ExtraSauce") currentTotal += 1;
+		else currentTotal += 2;
+
+		return addExtraOptions(currentTotal, extras);
+	}
 }
 
 /**
@@ -24,5 +44,11 @@ export function pizzaPrice(pizza, ...extras) {
  * @returns {number} the price of the total order
  */
 export function orderPrice(pizzaOrders) {
-  throw new Error('Please implement the orderPrice function');
+  let totalPrice = 0;
+
+	pizzaOrders.forEach((order) => {
+		totalPrice += pizzaPrice(order.pizza, ...order.extras);
+	});
+
+	return totalPrice;
 }
