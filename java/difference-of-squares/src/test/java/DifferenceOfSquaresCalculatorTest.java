@@ -10,7 +10,7 @@ public class DifferenceOfSquaresCalculatorTest {
 
     @Before
     public void setUp() {
-        calculator = new DifferenceOfSquaresCalculator();
+        calculator = new DifferenceOfSquaresCalculator()
     }
 
     @Test
