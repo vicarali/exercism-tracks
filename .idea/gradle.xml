@@ -28,6 +28,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java/secrets" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java/secrets" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/java/squeaky-clean" />
         <option name="modules">
           <set>
