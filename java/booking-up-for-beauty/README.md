@@ -12,7 +12,8 @@ The `java.time` package introduced in Java 8 contains several classes to work wi
 
 ### `LocalDate`
 
-The `java.time.LocalDate` class represents a date without a time-zone in the [ISO-8601 calendar system][iso-8601], such as `2007-12-03`:
+The `java.time.LocalDate` class represents a date without a time-zone in the [ISO-8601 calendar system][iso-8601], such
+as `2007-12-03`:
 
 ```java
 LocalDate date = LocalDate.of(2007, 12, 3);
@@ -24,10 +25,14 @@ Dates can be compared to other dates:
 LocalDate date1 = LocalDate.of(2007, 12, 3);
 LocalDate date2 = LocalDate.of(2007, 12, 4);
 
-date1.isBefore(date2);
+date1.
+
+isBefore(date2);
 // => true
 
-date1.isAfter(date2);
+date1.
+
+isAfter(date2);
 // => false
 ```
 
@@ -36,7 +41,9 @@ A `LocalDate` instance has getters to retrieve time portions from it:
 ```java
 LocalDate date = LocalDate.of(2007, 12, 3);
 
-date.getDayOfMonth();
+date.
+
+getDayOfMonth();
 // => 3
 ```
 
@@ -49,13 +56,16 @@ These methods return a _new_ `LocalDate` instance and do not update the existing
 ```java
 LocalDate date = LocalDate.of(2007, 12, 3);
 
-date.addDays(3);
+date.
+
+addDays(3);
 // => 2007-12-06
 ```
 
 ### `LocalDateTime`
 
-The `java.time.LocalDateTime` class represents a date-time without a time-zone in the [ISO-8601 calendar system][iso-8601], such as `2007-12-03T10:15:30`:
+The `java.time.LocalDateTime` class represents a date-time without a time-zone in
+the [ISO-8601 calendar system][iso-8601], such as `2007-12-03T10:15:30`:
 
 ```java
 LocalDateTime datetime = LocalDateTime.of(2007, 12, 3, 10, 15, 30);
@@ -66,19 +76,24 @@ You can convert a `LocalDate` instance into a `LocalDateTime`:
 ```java
 LocalDate date = LocalDate.of(2007, 12, 3);
 LocalDateTime datetime = date.atTime(10, 15, 30);
-datetime.toString();
+datetime.
+
+toString();
 // => "2007-12-03T10:15:30"
 ```
 
 ### Formatting datetimes
 
-Both `LocalDate` and `LocalDateTime` use the [ISO-8601][iso-8601] standard notation when converting from and to a `String`.
+Both `LocalDate` and `LocalDateTime` use the [ISO-8601][iso-8601] standard notation when converting from and to a
+`String`.
 
 ```java
 LocalDateTime datetime = LocalDateTime.of(2007, 12, 3, 10, 15, 30);
 LocalDateTime parsed = LocalDateTime.parse("2007-12-03T10:15:30");
 
-datetime.isEqual(parsed);
+datetime.
+
+isEqual(parsed);
 // => true
 ```
 
@@ -90,7 +105,9 @@ DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 LocalDate date = LocalDate.parse("03/12/2007", parser);
 
 DateTimeFormatter printer = DateTimeFormatter.ofPattern("MMMM d, yyyy");
-printer.format(date);
+printer.
+
+format(date);
 // => "December 3, 2007"
 ```
 
@@ -98,55 +115,71 @@ printer.format(date);
 
 ## Instructions
 
-In this exercise you'll be working on an appointment scheduler for a beauty salon in New York that opened on September 15th in 2012.
+In this exercise you'll be working on an appointment scheduler for a beauty salon in New York that opened on September
+15th in 2012.
 
 ## 1. Parse appointment date
 
-Implement the `AppointmentScheduler.schedule()` method to parse a textual representation of an appointment date into the corresponding `LocalDateTime`:
+Implement the `AppointmentScheduler.schedule()` method to parse a textual representation of an appointment date into the
+corresponding `LocalDateTime`:
 
 ```java
 AppointmentScheduler scheduler = new AppointmentScheduler();
-scheduler.schedule("7/25/2019 13:45:00");
+scheduler.
+
+schedule("7/25/2019 13:45:00");
 // => LocalDateTime.of(2019, 7, 25, 13, 45, 0)
 ```
 
 ## 2. Check if an appointment has already passed
 
-Implement the `AppointmentScheduler.hasPassed()` method that takes an appointment date and checks if the appointment was somewhere in the past:
+Implement the `AppointmentScheduler.hasPassed()` method that takes an appointment date and checks if the appointment was
+somewhere in the past:
 
 ```java
 AppointmentScheduler scheduler = new AppointmentScheduler();
-scheduler.hasPassed(LocalDateTime.of(1999, 12, 31, 9, 0, 0));
+scheduler.
+
+hasPassed(LocalDateTime.of(1999, 12,31,9,0,0));
 // => true
 ```
 
 ## 3. Check if appointment is in the afternoon
 
-Implement the `AppointmentScheduler.isAfternoonAppointment()` method that takes an appointment date and checks if the appointment is in the afternoon (>= 12:00 and < 18:00):
+Implement the `AppointmentScheduler.isAfternoonAppointment()` method that takes an appointment date and checks if the
+appointment is in the afternoon (>= 12:00 and < 18:00):
 
 ```java
 AppointmentScheduler scheduler = new AppointmentScheduler();
-scheduler.isAfternoonAppointment(LocalDateTime.of(2019, 03, 29, 15, 0, 0))
+scheduler.
+
+isAfternoonAppointment(LocalDateTime.of(2019, 03,29,15,0,0))
 // => true
 ```
 
 ## 4. Describe the time and date of the appointment
 
-Implement the `AppointmentScheduler.getDescription()` method that takes an appointment date and returns a description of that date and time:
+Implement the `AppointmentScheduler.getDescription()` method that takes an appointment date and returns a description of
+that date and time:
 
 ```java
 AppointmentScheduler scheduler = new AppointmentScheduler();
-scheduler.getDescription(LocalDateTime.of(2019, 03, 29, 15, 0, 0))
+scheduler.
+
+getDescription(LocalDateTime.of(2019, 03,29,15,0,0))
 // => "You have an appointment on Friday, March 29, 2019, at 3:00 PM."
 ```
 
 ## 5. Return the anniversary date
 
-Implement the `AppointmentScheduler.getAnniversaryDate()` method that returns this year's anniversary date, which is September 15th:
+Implement the `AppointmentScheduler.getAnniversaryDate()` method that returns this year's anniversary date, which is
+September 15th:
 
 ```java
 AppointmentScheduler scheduler = new AppointmentScheduler();
-scheduler.getAnniversaryDate()
+scheduler.
+
+getAnniversaryDate()
 // => LocalDate.of(<current year>, 9, 15)
 ```
 
