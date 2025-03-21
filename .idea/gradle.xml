@@ -4,6 +4,14 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java/booking-up-for-beauty" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java/booking-up-for-beauty" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/java/jedliks-toy-car" />
         <option name="modules">
           <set>
