@@ -12,6 +12,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java/captains-log" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java/captains-log" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/java/jedliks-toy-car" />
         <option name="modules">
           <set>
