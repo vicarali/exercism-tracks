@@ -36,6 +36,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java/need-for-speed" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java/need-for-speed" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/java/salary-calculator" />
         <option name="modules">
           <set>
