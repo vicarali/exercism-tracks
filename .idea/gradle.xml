@@ -28,6 +28,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java/international-calling-connoisseur" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java/international-calling-connoisseur" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/java/jedliks-toy-car" />
         <option name="modules">
           <set>
