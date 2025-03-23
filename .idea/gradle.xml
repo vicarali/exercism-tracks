@@ -75,6 +75,14 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java/wizards-and-warriors" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java/wizards-and-warriors" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
